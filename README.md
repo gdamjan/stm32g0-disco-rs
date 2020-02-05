@@ -4,6 +4,8 @@ A simple rust blinky example on a stm32g031j6 microcontroller on the
 [stm32g0316-disco](https://www.st.com/en/evaluation-tools/stm32g0316-disco.html)
 development board. The board includes a st-link v2 programmer.
 
+![stm32g0316-disco](https://www.st.com/bin/ecommerce/api/image.PF267507.en.feature-description-include-personalized-no-cpn-medium.jpg)
+
 ## Quick Start
 
 ### Get dependencies:
