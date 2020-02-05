@@ -16,6 +16,7 @@ development board. The board includes a st-link v2 programmer.
 - `arm-none-eabi-binutils` is mandatory, `arm-none-eabi-gdb` is helpful
 
 ### Compile and flash:
+
 ```
 cargo build
 
@@ -27,4 +28,18 @@ path-to-stlink/build/Release/st-flash --debug write \
     target/thumbv6m-none-eabi/debug/stm32g0-disco-rs.bin 0x8000000
 ```
 
+## Notes:
+
+* `memory.x` - is the memory layout of the stm32g031j6 mcu (8KB ram, 32KB flash).
+  That layout assumes no bootloader, with a bootloader the FLASH ORIGIN needs
+  to be moved to something like 0x08200000 for a 2KB bootloader. Not that I
+  know of a bootloader for the stm32g031j6.
+* `.cargo/config` - is setup to automatically select the thumbv6m-none-eabi (cortex-m0+)
+  target on build.
+
+
+## See also:
+
+* [libopencm3 miniblink](https://github.com/libopencm3/libopencm3-miniblink) - blinkies for _any_ board supported. Useful for testing your toolchain and build environment
+* [awesome embedded rust](https://github.com/rust-embedded/awesome-embedded-rust) - Curated list of resources for Embedded and Low-level development in the Rust programming language
 
