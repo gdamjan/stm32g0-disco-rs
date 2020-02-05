@@ -1,0 +1,20 @@
+[package]
+edition = "2018"
+name = "stm32g0-disco-rs"
+version = "0.1.0"
+authors = ["Damjan Georgievski <gdamjan@gmail.com>"]
+
+[dependencies]
+panic-semihosting = "0.5.3"
+cortex-m-rt = "0.6.12"
+
+[dependencies.stm32g0xx-hal]
+default-features = false
+features = ["stm32g031", "rt"]
+git = "https://github.com/stm32-rs/stm32g0xx-hal"
+
+[profile.release]
+debug = false
+codegen-units = 1
+incremental = false
+lto = true
