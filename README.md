@@ -30,6 +30,11 @@ path-to-stlink/build/Release/st-flash --debug write \
     target/thumbv6m-none-eabi/debug/stm32g0-disco-rs.bin 0x8000000
 ```
 
+Alternatively, `cargo-flash` should get stm32g0 support soon, and it supports
+flashing ELF files directly, so you wont need neither `arm-none-eabi-objcopy`
+(`arm-none-eabi-binutils`) nor `stlink`.
+
+
 ## Notes:
 
 * `memory.x` - is the memory layout of the stm32g031j6 mcu (8KB ram, 32KB flash).
