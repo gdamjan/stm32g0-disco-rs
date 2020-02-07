@@ -39,7 +39,7 @@ flashing ELF files directly, so you wont need neither `arm-none-eabi-objcopy`
 
 * `memory.x` - is the memory layout of the stm32g031j6 mcu (8KB ram, 32KB flash).
   That layout assumes no bootloader, with a bootloader the FLASH ORIGIN needs
-  to be moved to something like 0x08200000 for a 2KB bootloader. Not that I
+  to be moved to something like 0x08002000 for a 8KB bootloader. Not that I
   know of a bootloader for the stm32g031j6.
 * `.cargo/config` - is setup to automatically select the thumbv6m-none-eabi (cortex-m0+)
   target on build.
