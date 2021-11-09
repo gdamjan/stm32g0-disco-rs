@@ -55,10 +55,9 @@ cargo run
 ```
 
 
-### Using stlink
+### Using [stlink](https://github.com/stlink-org/stlink/)
 
-stlink can also be used to flash the mcu on this board. But for now, you need an unreleased
-[patched stlink](https://github.com/texane/stlink/pull/857). Also, stlink can't flash
+`stlink` (1.6.1 and up) can also be used to flash the mcu on this board. stlink can't flash
 ELF files directly, so you need a binary dump of the program code, and you have to
 specify the address of the flash (`0x8000000`):
 
@@ -67,7 +66,7 @@ arm-none-eabi-objcopy -Obinary \
     target/thumbv6m-none-eabi/debug/stm32g0-disco-rs     \
     target/thumbv6m-none-eabi/debug/stm32g0-disco-rs.bin
 
-path-to-stlink/build/Release/st-flash --debug write \
+st-flash --debug write \
     target/thumbv6m-none-eabi/debug/stm32g0-disco-rs.bin 0x8000000
 ```
 
