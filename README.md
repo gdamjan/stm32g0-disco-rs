@@ -22,7 +22,7 @@ a quite small 8pin mcu, which has only 8KB ram and 32KB flash.
 ### Compile and flash:
 
 ```
-cargo flash --release --chip stm32g031j6
+cargo flash --release --chip stm32g031j6mx
 ```
 
 ## Notes:
