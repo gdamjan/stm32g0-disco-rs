@@ -6,14 +6,13 @@
 use core::panic::PanicInfo;
 use rtt_target::{rprintln, rtt_init_print};
 
-use cortex_m_rt::entry;
 use stm32g0xx_hal as hal;
 
 use hal::prelude::*;
 use hal::rcc::Config;
 use hal::stm32;
 
-#[entry]
+#[cortex_m_rt::entry]
 fn main() -> ! {
     rtt_init_print!();
     let dp = stm32::Peripherals::take().expect("cannot take peripherals");
