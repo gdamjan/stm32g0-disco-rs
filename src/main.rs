@@ -26,7 +26,10 @@ fn main() -> ! {
     let mut led = gpioa.pa12.into_push_pull_output();
 
     loop {
-        led.toggle().unwrap();
-        delay.delay(500.ms());
+        // led.toggle().unwrap();
+        led.set_high().unwrap();
+        delay.delay(150.ms());
+        led.set_low().unwrap();
+        delay.delay(850.ms());
     }
 }
