@@ -9,6 +9,8 @@
 #[allow(unused)]
 use panic_semihosting;
 
+use rtt_target::{rprintln, rtt_init_print};
+
 use cortex_m_rt::entry;
 use stm32g0xx_hal as hal;
 
@@ -18,6 +20,7 @@ use hal::stm32;
 
 #[entry]
 fn main() -> ! {
+    rtt_init_print!();
     let dp = stm32::Peripherals::take().expect("cannot take peripherals");
     let mut rcc = dp.RCC.freeze(Config::lsi());
     let mut delay = dp.TIM16.delay(&mut rcc);
@@ -25,6 +28,7 @@ fn main() -> ! {
     let gpioa = dp.GPIOA.split(&mut rcc);
     let mut led = gpioa.pa12.into_push_pull_output();
 
+    rprintln!("Hello, world!");
     loop {
         // led.toggle().unwrap();
         led.set_high().unwrap();
