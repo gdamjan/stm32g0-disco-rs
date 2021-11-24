@@ -13,11 +13,17 @@ a quite small 8pin mcu, which has only 8KB ram and 32KB flash.
 
 - install cortex-m0 support for rust: `rustup target add thumbv6m-none-eabi`
 
-- install [cargo-flash](https://crates.io/crates/cargo-flash): `cargo install
-  cargo-flash` (make sure it's at least 0.5.0)
+- install [cargo-flash](https://probe.rs/docs/tools/cargo-flash/):
+  `cargo install cargo-flash`
+
+- on Linux make sure udev rules allow non-root access, see
+  [probe setup](https://probe.rs/docs/getting-started/probe-setup/).
 
 - `arm-none-eabi-binutils` and `arm-none-eabi-gdb` are recommended, but not
   mandatory
+
+- optional, for advanced debugging with RTT see [cargo embed](https://probe.rs/docs/tools/cargo-embed/)
+  and/or the [vscode extension](https://probe.rs/docs/tools/vscode/).
 
 ### Compile and flash:
 
@@ -41,6 +47,10 @@ know of a bootloader for the stm32g031j6.
 This file holds the cargo build configuration. It is setup to build using the thumbv6m-none-eabi (cortex-m0)
 target by default. Also, it'll show the program size (using `arm-none-eabi-size`) when
 you run `cargo run`.
+
+### `Embed.toml`
+
+`Embed.toml` is configuration for the [cargo embed](https://probe.rs/docs/tools/cargo-embed/) tool.
 
 ### Tracing with gdb
 
