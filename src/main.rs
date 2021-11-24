@@ -3,12 +3,7 @@
 #![no_main]
 #![no_std]
 
-// #[allow(unused)]
-// use panic_halt;
-
-#[allow(unused)]
-use panic_semihosting;
-
+use core::panic::PanicInfo;
 use rtt_target::{rprintln, rtt_init_print};
 
 use cortex_m_rt::entry;
@@ -36,4 +31,11 @@ fn main() -> ! {
         led.set_low().unwrap();
         delay.delay(850.ms());
     }
+}
+
+#[inline(never)]
+#[panic_handler]
+fn panic(info: &PanicInfo) -> ! {
+    rprintln!("{}", info);
+    loop {} // You might need a compiler fence in here.
 }
