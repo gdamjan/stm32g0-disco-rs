@@ -10,7 +10,7 @@ stm32g0xx-hal = { version = "0.1.2", features = ["stm32g031", "rt"] }
 rtt-target = { version = "0.3.1", features = ["cortex-m"] }
 
 [profile.release]
-debug = false
+debug = true # "true" is ok, symbols reside on the host, not the target
 codegen-units = 1
 incremental = false
 lto = true

@@ -52,12 +52,19 @@ you run `cargo run`.
 
 `Embed.toml` is configuration for the [cargo embed](https://probe.rs/docs/tools/cargo-embed/) tool.
 
+### probe-run
+
+See [probe-run](https://github.com/knurling-rs/probe-run) "Runs embedded programs just like native ones", just `cargo install probe-run` away.
+
+[![asciicast](https://asciinema.org/a/452040.svg)](https://asciinema.org/a/452040)
+
+
 ### Tracing with gdb
 
 Change the `runner` in `.cargo/config` to: `runner = 'arm-none-eabi-gdb'`, and
 then in one terminal run:
 ```
-cargo flash --chip stm32g031j6 --gdb
+cargo flash --chip stm32g031j6mx --gdb
 ```
 and in another:
 ```
@@ -86,4 +93,3 @@ st-flash --debug write \
 * [Discover the world of microcontrollers through Rust!](https://docs.rust-embedded.org/discovery/) - introductory book about rust on microcontrollers
 * [awesome embedded rust](https://github.com/rust-embedded/awesome-embedded-rust) - Curated list of resources for Embedded and Low-level development in the Rust programming language
 * [libopencm3 miniblink](https://github.com/libopencm3/libopencm3-miniblink) - blinkies for _any_ board supported. Useful for testing your toolchain and build environment
-

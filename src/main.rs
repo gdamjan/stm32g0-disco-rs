@@ -16,11 +16,11 @@ use hal::stm32;
 fn main() -> ! {
     rtt_init_print!();
     let dp = stm32::Peripherals::take().expect("cannot take peripherals");
-    let mut rcc = dp.RCC.freeze(Config::lsi());
-    let mut delay = dp.TIM16.delay(&mut rcc);
+    let mut rcc = dp.RCC.freeze(Config::lsi()); // configure clocks
+    let mut delay = dp.TIM16.delay(&mut rcc); // and now we can have a working delay
 
-    let gpioa = dp.GPIOA.split(&mut rcc);
-    let mut led = gpioa.pa12.into_push_pull_output();
+    let gpioa = dp.GPIOA.split(&mut rcc); // get gpio port A
+    let mut led = gpioa.pa12.into_push_pull_output(); // the led is on 12th pin
 
     rprintln!("Hello, world!");
     loop {
@@ -36,5 +36,5 @@ fn main() -> ! {
 #[panic_handler]
 fn panic(info: &PanicInfo) -> ! {
     rprintln!("{}", info);
-    loop {} // You might need a compiler fence in here.
+    loop {}
 }
