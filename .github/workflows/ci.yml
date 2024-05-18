@@ -1,39 +1,21 @@
 name: ci
 
-on: [push]
+on:
+  push:
+    branches: [main]
+  pull_request:
 
 jobs:
-  compile:
+  build:
     runs-on: ubuntu-latest
 
-    strategy:
-      matrix:
-        include:
-          - rust: stable
-          # - rust: nightly
-
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions-rs/toolchain@v1
-        with:
-          toolchain: ${{ matrix.rust }}
-          components: llvm-tools-preview
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+      - run: cargo install cargo-binutils
 
-      - name: install cargo-binutils
-        uses: actions-rs/cargo@v1
-        with:
-          command: install
-          args: cargo-binutils
-          toolchain: ${{ matrix.rust }}
+      - run: cargo build
+      - run: cargo size
 
-      - name: program size
-        uses: actions-rs/cargo@v1
-        with:
-          command: size
-          args: --release
-          toolchain: ${{ matrix.rust }}
-
-      - name: lint
-        uses: actions-rs/clippy-check@v1
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Annotate commit with clippy warnings
+        uses: giraffate/clippy-action@v1

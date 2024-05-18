@@ -1,2 +1,5 @@
+[default.general]
+chip = "STM32G031J6Mx"
+
 [default.rtt]
 enabled = true

@@ -11,24 +11,14 @@ a quite small 8pin mcu, which has only 8KB ram and 32KB flash.
 
 ### Setup tooling:
 
-- install cortex-m0 support for rust: `rustup target add thumbv6m-none-eabi`
-
-- install [cargo-flash](https://probe.rs/docs/tools/cargo-flash/):
-  `cargo install cargo-flash`
-
-- on Linux make sure udev rules allow non-root access, see
-  [probe setup](https://probe.rs/docs/getting-started/probe-setup/).
-
-- `arm-none-eabi-binutils` and `arm-none-eabi-gdb` are recommended, but not
-  mandatory
-
-- optional, for advanced debugging with RTT see [cargo embed](https://probe.rs/docs/tools/cargo-embed/)
-  and/or the [vscode extension](https://probe.rs/docs/tools/vscode/).
+- [`rustup`](https://rustup.rs/) - is recommended to install rust and its components
+- `cargo install cargo-binutils` - for `cargo size` and `cargo objdump -- --disassemble`, etc…
+- `cargo install cargo-embed` - flash and debug using the [`probe-rs project`](https://probe.rs/)
 
 ### Compile and flash:
 
 ```
-cargo flash --release --chip stm32g031j6mx
+cargo embed --release
 ```
 
 ## Notes:

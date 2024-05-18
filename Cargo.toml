@@ -5,9 +5,10 @@ version = "0.1.0"
 authors = ["Damjan Georgievski <gdamjan@gmail.com>"]
 
 [dependencies]
-cortex-m-rt = "0.6.15" # can't upgrade higher until g0xx-hal catches up
-stm32g0xx-hal = { version = "0.1.2", features = ["stm32g031", "rt"] }
-rtt-target = { version = "0.3.1", features = ["cortex-m"] }
+stm32g0xx-hal = { version = "0.2", features = ["stm32g031", "rt"] }
+cortex-m-rt = "0.7.4"
+panic-halt = "0.2.0"
+rtt-target = "0.5.0"
 
 [profile.release]
 debug = true # "true" is ok, symbols reside on the host, not the target
