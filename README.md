@@ -5,7 +5,7 @@ A simple rust blinky example on a stm32g031j6 microcontroller on the
 development board. The board includes a st-link v2 programmer. The stm32g031j6 is
 a quite small 8pin mcu, which has only 8KB ram and 32KB flash.
 
-![stm32g0316-disco](https://www.st.com/bin/ecommerce/api/image.PF267507.en.feature-description-include-personalized-no-cpn-medium.jpg)
+![stm32g0316-disco](https://github.com/gdamjan/stm32g0-disco-rs/assets/81654/01caaff3-19c2-4af8-b28a-5d0efaecba6e)
 
 ## Quick Start
 
