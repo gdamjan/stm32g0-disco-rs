@@ -2,9 +2,5 @@
 runner = "probe-run --chip stm32g031j6mx"
 # runner = 'arm-none-eabi-size -G'
 
-rustflags = [
-  "-C", "link-arg=-Tlink.x",
-]
-
 [build]
 target = "thumbv6m-none-eabi"
