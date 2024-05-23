@@ -13,7 +13,7 @@ a quite small 8pin mcu, which has only 8KB ram and 32KB flash.
 
 - [`rustup`](https://rustup.rs/) - is recommended to install rust and its components
 - `cargo install cargo-binutils` - for `cargo size` and `cargo objdump -- --disassemble`, etc…
-- `cargo install cargo-embed` - flash and debug using the [`probe-rs project`](https://probe.rs/)
+- `cargo install probe-rs-tools` - flash and debug using the [`probe-rs project`](https://probe.rs/)
 
 ### Compile and flash:
 
